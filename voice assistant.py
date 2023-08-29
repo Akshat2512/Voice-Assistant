@@ -7,11 +7,11 @@ import pyttsx3
 import speech_recognition as sr
 import wikipedia
 
-from gen_test import record_to_file, extract_feature
-from utils import create_model
+from Data.gen_test import record_to_file, extract_feature
+from Data.utils import create_model
     
 model = create_model()
-model.load_weights("Python Projects/voiceassistant/model.h5")
+model.load_weights("Python Projects/voiceassistant/Data/model.h5")
 
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
@@ -26,7 +26,7 @@ def speak(audio):
 
 
 def Gender():
-    file='Python Projects/voiceassistant/recorded.wav'
+    file='Python Projects/voiceassistant/Data/recorded.wav'
     features = extract_feature(file, mel=True).reshape(1, -1)
        
     male_prob = model.predict(features)[0][0]
@@ -422,7 +422,7 @@ def main():
             elif 'play' in query or 'play song' in query:
                    
                     
-                    file1=open("C:\\Users\\Akshat\\Documents\\C C++\\Memory.txt","r")
+                    file1=open("Data/Memory.txt","r")
                     
                     a=file1.read(1)
                     music_dir = 'C:\\\\Users\\\\Akshat\\\\Music\\\\Songs'
