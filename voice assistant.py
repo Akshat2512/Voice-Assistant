@@ -26,7 +26,7 @@ def speak(audio):
 
 
 def Gender():
-    file='C:/Git/Python Projects/voiceassistant/recorded.wav'
+    file='Python Projects/voiceassistant/recorded.wav'
     features = extract_feature(file, mel=True).reshape(1, -1)
        
     male_prob = model.predict(features)[0][0]
